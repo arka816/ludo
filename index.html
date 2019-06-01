@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ludo King</title>
+	<meta charset="utf-8">
+	<link rel='shortcut icon' href='favicon.png' type='image/png'>
+	<link rel="stylesheet" type="text/css" href="game.css">
+	<script type="text/javascript" src="game.js"></script>
+</head>
+<body onload="initial()">
+	<div class="logo">
+		<img src="ludo.jpg" height="200px">
+	</div>
+	<div style="display: inline-flex;">
+		<div onclick="startA()" id="lockerA"><h1>Locker for A</h1></div>
+		<div onclick="startB()" id="lockerB"><h1>Locker for B</h1></div>
+	</div>
+	<br>
+	<div class="wrapper">
+		<div class="first">
+			<div id="1" class="block" style="background-color: #66b3ff" onclick="isMovable(1)">
+			</div>
+			<div id="2" class="block" onclick="isMovable(2)"></div>
+			<div id="3" class="block" onclick="isMovable(3)"></div>
+			<div id="4" class="block" onclick="isMovable(4)"></div>
+			<div id="5" class="block" onclick="isMovable(5)"></div>
+			<div id="6" class="block" onclick="isMovable(6)"></div>
+			<div id="7" class="block" onclick="isMovable(7)"></div>
+			<div id="8" class="block" onclick="isMovable(8)"></div>
+		</div>
+		<div class="mid">
+			<div class="block" id="0" onclick="isMovable(0)" style="background-color: rgba(102,179,255,0.5);"></div>
+			<div class="block" id="9" onclick="isMovable(9)" style="margin-left: 450px"></div>
+		</div>
+		<div class="mid">
+			<div class="block" id="27" onclick="isMovable(27)"></div>
+			<div class="block" id="10" onclick="isMovable(10)" style="margin-left: 450px"></div>
+		</div>
+		<div class="mid">
+			<div class="block" id="26" onclick="isMovable(26)"></div>
+			<div style="position: relative; left: 150px; width: 150px; text-align: center;">
+				<button class="roll" onclick="rollRand()">Roll!</button>
+				<div id="value"></div>
+				<div id="turns"></div>
+				<div id="terms"></div>	
+				<form class="checker" style="display: inline-flex; position: relative; right: 17.6px;">
+					<input type="number" name="dice" min="1" max="6" id="dice" autofocus>
+  					<div onclick="check()" id="submit">Check</div>
+				</form>
+			</div>
+			<div class="block" id="11" onclick="isMovable(11)" style="margin-left: 300px"></div>
+		</div>
+		<div class="mid">
+			<div class="block" id="25" onclick="isMovable(25)"></div>
+			<div class="block" id="12" onclick="isMovable(12)" style="margin-left: 450px"></div>
+		</div>
+		<div class="mid">
+			<div class="block" id="24" onclick="isMovable(24)"></div>
+			<div class="block" id="13" onclick="isMovable(13)" style="margin-left: 450px"></div>
+		</div>
+		<div class="mid">
+			<div class="block" id="23" onclick="isMovable(23)"></div>
+			<div class="block" id="14" onclick="isMovable(14)" style="background-color: rgba(216,50,48,0.7); margin-left: 450px"></div>
+		</div>
+		<div class="first">
+			<div class="block" id="22" onclick="isMovable(22)"></div>
+			<div class="block" id="21" onclick="isMovable(21)"></div>
+			<div class="block" id="20" onclick="isMovable(20)"></div>
+			<div class="block" id="19" onclick="isMovable(19)"></div>
+			<div class="block" id="18" onclick="isMovable(18)"></div>
+			<div class="block" id="17" onclick="isMovable(17)"></div>
+			<div class="block" id="16" onclick="isMovable(16)"></div>
+			<div class="block" id="15" style="background-color: #d83230" onclick="isMovable(15)"></div>
+		</div>
+	</div>
+	<p><br></p>
+
+	
+	<p><br><br></p>
+</body>
+</html>
