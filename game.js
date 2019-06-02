@@ -15,6 +15,8 @@ var B1 = -2;
 var B2 = -2;
 var finishA = 0;
 var finishB = 0;
+var lockerA = 2;
+var lockerB = 2;
 var Red1 = new Image();
 var Blue1 = new Image();
 var Red2 = new Image();
@@ -151,7 +153,7 @@ function pass()
 function startA(){
 	if(rollValue==6 && term == 'A')
 	{
-		if((countA-finishA) == 0)
+		if(lockerA == 2)
 		{   
 			var src = document.getElementById("1");
     		src.appendChild(Blue1);
@@ -159,8 +161,9 @@ function startA(){
 			rollValue=0;
 			document.getElementById('value').innerHTML= '';
 			countA++;
+			lockerA--;
 		}
-		else if((countA-finishA) == 1)
+		else if(lockerA == 1)
 		{
 			if(A1 == -2)
 			{
@@ -170,6 +173,7 @@ function startA(){
 				rollValue=0;
 				document.getElementById('value').innerHTML= '';
 				countA++;
+				lockerA--;
 			}
 			else if(A2 == -2)
 			{
@@ -179,8 +183,11 @@ function startA(){
 				rollValue=0;
 				document.getElementById('value').innerHTML= '';
 				countA++;
+				lockerA--;
 			}
 		}
+		else if(lockerA == 0)
+			alert('Locker A is empty');
 		status = 1;
 	}
 }
@@ -188,7 +195,7 @@ function startA(){
 function startB(){
 	if(rollValue==6 && term == 'B')
 	{
-		if((countB-finishB) == 0)
+		if(lockerB == 2)
 		{
 			var src = document.getElementById("15");
     		src.appendChild(Red1);
@@ -196,8 +203,9 @@ function startB(){
 			rollValue=0;
 			document.getElementById('value').innerHTML= '';
 			countB++;
+			lockerB--;
 		}
-		else if((countB-finishB) == 1)
+		else if(lockerB == 1)
 		{
 			if(B1 == -2)
 			{
@@ -207,6 +215,7 @@ function startB(){
 				rollValue=0;
 				document.getElementById('value').innerHTML= '';
 				countB++;
+				lockerB--;
 			}
 			else if(B2 == -2)
 			{
@@ -216,8 +225,11 @@ function startB(){
 				rollValue=0;
 				document.getElementById('value').innerHTML= '';
 				countB++;
+				lockerB--;
 			}
 		}
+		else if(lockerB == 0)
+			alert('Locker B is empty');
 		status = 1;
 	}
 }
@@ -403,6 +415,7 @@ function eatCheck(n)
 			var src = document.getElementById(str);
 			src.removeChild(Red1);
 			countB--;
+			lockerB++;
 			var loc = document.getElementById('lockerB');
 			loc.appendChild(Red1);
 			B1 = -2;
@@ -414,6 +427,7 @@ function eatCheck(n)
 			var src = document.getElementById(str);
 			src.removeChild(Red2);
 			countB--;
+			lockerB++;
 			var loc = document.getElementById('lockerB');
 			loc.appendChild(Red2);
 			B2 = -2;
@@ -428,6 +442,7 @@ function eatCheck(n)
 			var src = document.getElementById(str);
 			src.removeChild(Blue1);
 			countA--;
+			lockerA++;
 			var loc = document.getElementById('lockerA');
 			loc.appendChild(Blue1);
 			A1 = -2;
@@ -439,6 +454,7 @@ function eatCheck(n)
 			var src = document.getElementById(str);
 			src.removeChild(Blue2);
 			countA--;
+			lockerA++;
 			var loc = document.getElementById('lockerA');
 			loc.appendChild(Blue2);
 			A2 = -2;
