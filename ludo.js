@@ -74,8 +74,11 @@ function check()
 					else
 					{
 						setTimeout(function(){
+							rollValue = 0;
 							termChanger();
-							rollCheck();},2000);
+							document.getElementById('value').innerHTML = rollValue;
+							document.getElementById('turns').innerHTML = "turn of: "+turn;
+							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
 					}
 				}
 				else{
@@ -91,8 +94,11 @@ function check()
 					else
 					{
 						setTimeout(function(){
+							rollValue = 0;
 							termChanger();
-							rollCheck();},2000);
+							document.getElementById('value').innerHTML = rollValue;
+							document.getElementById('turns').innerHTML = "turn of: "+turn;
+							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
 					}
 				}
 				else{
@@ -105,7 +111,8 @@ function check()
 		status = 0;
 	document.getElementById('turns').innerHTML = "turn of: "+turn;
 	document.getElementById('terms').innerHTML = "term of: "+term;
-	setTimeout(auto(),2000);
+	autoFinish();
+	setTimeout(function(){auto()},2000);
 }
 
 function rollRand()
@@ -126,8 +133,11 @@ function rollRand()
 					else
 					{
 						setTimeout(function(){
+							rollValue = 0;
 							termChanger();
-							roll();},2000);
+							document.getElementById('value').innerHTML = rollValue;
+							document.getElementById('turns').innerHTML = "turn of: "+turn;
+							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
 					}
 				}
 				else{
@@ -143,8 +153,11 @@ function rollRand()
 					else
 					{
 						setTimeout(function(){
+							rollValue = 0;
 							termChanger();
-							roll();},2000);
+							document.getElementById('value').innerHTML = rollValue;
+							document.getElementById('turns').innerHTML = "turn of: "+turn;
+							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
 					}
 				}
 				else{
@@ -158,34 +171,126 @@ function rollRand()
 	document.getElementById('value').innerHTML = rollValue;
 	document.getElementById('turns').innerHTML = "turn of: "+turn;
 	document.getElementById('terms').innerHTML = "term of: "+term;
-	setTimeout(auto,2000);
+	autoFinish();
+	setTimeout(function(){auto()},2000);
+}
+
+function autoFinish()
+{
+	if(term == 'A')
+	{
+		if((rollValue+stepA1) > 27)
+		{
+			if((LockerA + finishA) == 1)
+			{
+				status = 1;
+				termChanger();
+				if(rollValue != 6)
+					rollValue = 0;
+				else
+					startA();
+			}
+			else if((LockerA+finishA) == 0)
+				isMovable(A2);
+		}
+		else if((rollValue+stepA2) > 27)
+		{
+			if((LockerA+finishA) == 1)
+			{
+				status = 1;
+				termChanger();
+				if(rollValue != 6)
+					rollValue = 0;
+				else
+					startA();
+			}
+			else if((LockerA+finishA) == 0)
+				isMovable(A1);
+		}
+		if((rollValue+stepA1) > 27 && (rollValue+stepA2) > 27)
+		{
+			status = 1;
+			termChanger();
+		}
+	}
+	if(term == 'B')
+	{
+		if((rollValue+stepB1) > 27)
+		{
+			if((LockerB+finishB) == 1)
+			{
+				status = 1;
+				termChanger();
+				if(rollValue != 6)
+					rollValue = 0;
+				else
+					startB();
+			}
+			else if((LockerB+finishB) == 0)
+				isMovable(B2);
+		}
+		else if((rollValue+stepB2) > 27)
+		{
+			if((LockerB+finishB) == 1)
+			{
+				status = 1;
+				termChanger();
+				if(rollValue != 6)
+					rollValue = 0;
+				else
+					startB();
+			}
+			else if((LockerB+finishB) == 0)
+				isMovable(B1);
+		}
+		if((rollValue+stepB1) > 27 && (rollValue+stepB2) > 27)
+		{
+			status = 1;
+			termChanger();
+		}
+	}
+	setTimeout(function(){
+		document.getElementById('value').innerHTML = rollValue;
+		document.getElementById('turns').innerHTML = "turn of: "+turn;
+		document.getElementById('terms').innerHTML = "term of: "+term;
+	},2000);
 }
 
 function auto()
 {
 	if(rollValue == 6)
 	{
-		if(term == "A" && (LockerA+finishA) == 2)
+		if(term == "A" && (LockerA + finishA) == 2)
 			startA();
-		else if(term == "B" && (LockerB+finishB) == 2)
+		else if(term == "B" && (LockerB + finishB) == 2)
 			startB();
 	}
 	else if(rollValue != 6)
 	{
-		if(term == "A" && (LockerA+finishA) == 1)
+		if(term == "A" && (LockerA + finishA) == 1)
 		{
 			if(A1>=0)
 				isMovable(A1);
 			else if(A2>=0)
 				isMovable(A2);
 		}
-		if(term == "B" && (LockerB+finishB) == 1)
+		else if(term == "B" && (LockerB + finishB) == 1)
 		{
 			if(B1>=0)
 				isMovable(B1);
 			else if(B2>=0)
 				isMovable(B2);
 		}
+	}
+	if(term == 'A')
+	{
+		if(A1 == A2 && A1>0)
+			isMovable(A1);
+	}
+	else if(term == 'B')
+	{
+		if(B1 == B2 && B1>0)
+			isMovable(B1);
 	}
 }
 
@@ -216,8 +321,7 @@ function startA(){
 			A1=1;
 			rollValue=0;
 			document.getElementById('value').innerHTML= '';
-			LockerA--;
-		},1000)
+			LockerA--;},1000)
 		}
 		else if(LockerA == 1)
 		{
@@ -230,8 +334,7 @@ function startA(){
 					A1=1;
 					rollValue=0;
 					document.getElementById('value').innerHTML= '';
-					LockerA--;
-				},1000)
+					LockerA--;},1000)
 			}
 			else if(A2 == -2)
 			{
@@ -242,8 +345,7 @@ function startA(){
 					A2=1;
 					rollValue=0;
 					document.getElementById('value').innerHTML= '';	
-					LockerA--;
-				},1000)
+					LockerA--;},1000)
 			}
 		}
 		else if(LockerA == 0)
@@ -264,8 +366,7 @@ function startB(){
 				B1=15;
 				rollValue=0;
 				document.getElementById('value').innerHTML= '';
-				LockerB--;
-			},1000)
+				LockerB--;},1000)
 		}
 		else if(LockerB == 1)
 		{
@@ -278,8 +379,7 @@ function startB(){
 					B1=15;
 					rollValue=0;
 					document.getElementById('value').innerHTML= '';
-					LockerB--;
-				},1000)
+					LockerB--;},1000)
 			}
 			else if(B2 == -2)
 			{
@@ -290,8 +390,7 @@ function startB(){
 					B2=15;
 					rollValue=0;
 					document.getElementById('value').innerHTML= '';
-					LockerB--;
-				},1000)
+					LockerB--;},1000)
 			}
 		}
 		else if(LockerB == 0)
@@ -306,16 +405,16 @@ function isMovable(p){
 	{
 		if(term == 'A')
 		{
-			if(A1 == p)
-				move(1,A1);
-			else if(A2 == p)
+			if(A1 == p && (stepA1 + rollValue)<=27)
+				move(1,A1);			
+			else if(A2 == p && (stepA2+rollValue)<=27)
 				move(2,A2);
 		}
 		else if(term == 'B')
 		{
-			if(B1 == p)
+			if(B1 == p && (stepB1+rollValue)<=27)
 				move(1,B1);
-			else if(B2 == p)
+			else if(B2 == p && (stepB2+rollValue)<=27)
 				move(2,B2);
 		}
 	}
@@ -323,70 +422,51 @@ function isMovable(p){
 
 function move(n,p){
 	myAud.play();
-	var prev;
 	if(term == 'A')
 	{
 		if(n == 1)
 		{
-			if((stepA1+rollValue)<=27)
-			{
-				tokenEraser(1);
-				A1 = (A1+rollValue)%28;
-				tokenMover(1);
-				stepA1 += rollValue;
-				prev = rollValue;
-				rollValue = 0;
-			}
+			tokenEraser(1);
+			A1 = (A1+rollValue)%28;
+			tokenMover(1);
+			stepA1 += rollValue;
 		}
 		else if(n == 2)
 		{
-			if((stepA2+rollValue)<=27)
-			{
-				tokenEraser(2);
-				A2 = (A2+rollValue)%28;
-				tokenMover(2);
-				stepA2 += rollValue;
-				prev = rollValue;
-				rollValue = 0;
-			}		
+			tokenEraser(2);
+			A2 = (A2+rollValue)%28;
+			tokenMover(2);
+			stepA2 += rollValue;		
 		}
 	}
 	if(term == 'B')
 	{
 		if(n == 1)
 		{
-			if((stepB1+rollValue)<=27)
-			{
-				tokenEraser(1);
-				B1 = (B1+rollValue)%28;
-				tokenMover(1);
-				stepB1 += rollValue;
-				prev = rollValue;
-				rollValue = 0;
-			}
+			tokenEraser(1);
+			B1 = (B1+rollValue)%28;
+			tokenMover(1);
+			stepB1 += rollValue;
 		}
 		else if(n == 2)
 		{
-			if((stepB2+rollValue)<=27)
-			{
-				tokenEraser(2);
-				B2 = (B2+rollValue)%28;
-				tokenMover(2);
-				stepB2 += rollValue;
-				prev = rollValue;
-				rollValue = 0;
-			}
+			tokenEraser(2);
+			B2 = (B2+rollValue)%28;
+			tokenMover(2);
+			stepB2 += rollValue;
 		}
 	}
 	eatCheck(n);
-	if(prev !=6)
+	if(rollValue !=6)
 		termChanger();
+	
 	document.getElementById('turns').innerHTML = "turn of : "+turn;
 	document.getElementById('terms').innerHTML = "term of : "+term;
-	document.getElementById('value').innerHTML='';
 	finishCheck();
 	winCheck();
 	status = 1;
+	document.getElementById('value').innerHTML = '';
+	rollValue = 0;
 }
 
 function tokenEraser(n)
