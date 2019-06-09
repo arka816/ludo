@@ -3,8 +3,6 @@ var stepA1 = 0;
 var stepA2 = 0;
 var stepB1 = 0;
 var stepB2 = 0;
-var movableA = false;
-var movableB = false;
 var turn = 'A';
 var term = 'A';
 var A1 = -2;
@@ -24,6 +22,7 @@ Blue1.src = 'blue1.png';
 Red2.src= 'red2.png';
 Blue2.src = 'blue2.png';
 var status = 1;
+var autoStatus = 1;
 
 var myAud = new Audio("whoosh.mp3");
 
@@ -38,6 +37,12 @@ function initial(){
 	loc.appendChild(Blue1);
 	var loc = document.getElementById('lockerA');
 	loc.appendChild(Blue2);
+}
+
+function myFunction(i)
+{
+	if(autoStatus == 0)
+		isMovable(i);
 }
 
 function roll()
@@ -64,7 +69,6 @@ function check()
 		if(rollValue!=6)
 		{
 			turnChanger();
-			//option checker
 			if(term == 'A')
 			{
 				if((LockerA + finishA) == 2)
@@ -81,9 +85,7 @@ function check()
 							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
 					}
 				}
-				else{
-					status = 0;
-				}
+				else status = 0;
 			}
 			else if(term == 'B')
 			{
@@ -101,18 +103,16 @@ function check()
 							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
 					}
 				}
-				else{
-					status = 0;
-				}
+				else status = 0;
 			}
 		}
 	}
-	if(rollValue == 6)
-		status = 0;
+	if(rollValue == 6) status = 0;
 	document.getElementById('turns').innerHTML = "turn of: "+turn;
 	document.getElementById('terms').innerHTML = "term of: "+term;
+	autoStatus = 1;
 	autoFinish();
-	setTimeout(function(){auto()},2000);
+	setTimeout(auto,2000);
 }
 
 function rollRand()
@@ -140,9 +140,7 @@ function rollRand()
 							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
 					}
 				}
-				else{
-					status = 0;
-				}
+				else status = 0;
 			}
 			else if(term == 'B')
 			{
@@ -160,19 +158,17 @@ function rollRand()
 							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
 					}
 				}
-				else{
-					status = 0;
-				}
+				else status = 0;
 			}
 		}
 	}
-	if(rollValue == 6)
-		status = 0;
+	if(rollValue == 6) status = 0;
 	document.getElementById('value').innerHTML = rollValue;
 	document.getElementById('turns').innerHTML = "turn of: "+turn;
 	document.getElementById('terms').innerHTML = "term of: "+term;
+	autoStatus = 1;
 	autoFinish();
-	setTimeout(function(){auto()},2000);
+	setTimeout(auto,2000);
 }
 
 function autoFinish()
@@ -188,10 +184,17 @@ function autoFinish()
 				if(rollValue != 6)
 					rollValue = 0;
 				else
-					startA();
+				{
+					if(LockerA == 1)
+						startA();
+					else 
+					{
+						rollValue = 0;
+					}
+				}
 			}
 			else if((LockerA+finishA) == 0)
-				isMovable(A2);
+				setTimeout(isMovable(A2),1500);
 		}
 		else if((rollValue+stepA2) > 27)
 		{
@@ -202,15 +205,24 @@ function autoFinish()
 				if(rollValue != 6)
 					rollValue = 0;
 				else
-					startA();
+				{
+					if(LockerA == 1)
+						startA();
+					else 
+					{
+						rollValue = 0;
+					}
+				}
 			}
 			else if((LockerA+finishA) == 0)
-				isMovable(A1);
+				setTimeout(isMovable(A1),1500);
 		}
 		if((rollValue+stepA1) > 27 && (rollValue+stepA2) > 27)
 		{
+			rollValue = 0;
 			status = 1;
 			termChanger();
+			setTimeout(function(){document.getElementById('value').innerHTML = rollValue;},2000);
 		}
 	}
 	if(term == 'B')
@@ -224,10 +236,17 @@ function autoFinish()
 				if(rollValue != 6)
 					rollValue = 0;
 				else
-					startB();
+				{
+					if(LockerB == 1)
+						startB();
+					else 
+					{
+						rollValue = 0;
+					}
+				}
 			}
 			else if((LockerB+finishB) == 0)
-				isMovable(B2);
+				setTimeout(isMovable(B2),1500);
 		}
 		else if((rollValue+stepB2) > 27)
 		{
@@ -238,15 +257,24 @@ function autoFinish()
 				if(rollValue != 6)
 					rollValue = 0;
 				else
-					startB();
+				{
+					if(LockerB == 1)
+						startB();
+					else 
+					{
+						rollValue = 0;
+					}
+				}
 			}
 			else if((LockerB+finishB) == 0)
-				isMovable(B1);
+				setTimeout(isMovable(B1),1500);
 		}
 		if((rollValue+stepB1) > 27 && (rollValue+stepB2) > 27)
 		{
+			rollValue = 0;
 			status = 1;
 			termChanger();
+			setTimeout(function(){document.getElementById('value').innerHTML = rollValue;},2000);
 		}
 	}
 	setTimeout(function(){
@@ -254,16 +282,37 @@ function autoFinish()
 		document.getElementById('turns').innerHTML = "turn of: "+turn;
 		document.getElementById('terms').innerHTML = "term of: "+term;
 	},2000);
+	autoStatus = 0;
 }
 
 function auto()
 {
 	if(rollValue == 6)
 	{
-		if(term == "A" && (LockerA + finishA) == 2)
-			startA();
-		else if(term == "B" && (LockerB + finishB) == 2)
-			startB();
+		if(term == "A")
+		{
+			if((LockerA + finishA) == 2)
+				startA();
+			else if(finishA == 1)
+			{
+				if(A1>=0)
+					isMovable(A1);
+				else if(A2>=0)
+					isMovable(A2);
+			}
+		}
+		if(term == "B")
+		{
+			if((LockerB + finishB) == 2)
+				startB();
+			else if(finishB == 1)
+			{
+				if(B1>=0)
+					isMovable(B1);
+				else if(B2>=0)
+					isMovable(B2);
+			}
+		}
 	}
 	else if(rollValue != 6)
 	{
@@ -292,6 +341,7 @@ function auto()
 		if(B1 == B2 && B1>0)
 			isMovable(B1);
 	}
+	autoStatus = 0;
 }
 
 function turnChanger(){
@@ -313,13 +363,13 @@ function termChanger()
 function startA(){
 	if(rollValue==6 && term == 'A')
 	{
+		rollValue=0;
 		if(LockerA == 2)
 		{   
 			myAud.play();
 			setTimeout(function(){var src = document.getElementById("1");
     		src.appendChild(Blue1);
 			A1=1;
-			rollValue=0;
 			document.getElementById('value').innerHTML= '';
 			LockerA--;},1000)
 		}
@@ -332,7 +382,6 @@ function startA(){
 					var src = document.getElementById("1");
 		    		src.appendChild(Blue1);
 					A1=1;
-					rollValue=0;
 					document.getElementById('value').innerHTML= '';
 					LockerA--;},1000)
 			}
@@ -343,7 +392,6 @@ function startA(){
 					var src = document.getElementById("1");
 		    		src.appendChild(Blue2);
 					A2=1;
-					rollValue=0;
 					document.getElementById('value').innerHTML= '';	
 					LockerA--;},1000)
 			}

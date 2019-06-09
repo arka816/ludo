@@ -24,6 +24,7 @@ Blue1.src = 'blue1.png';
 Red2.src= 'red2.png';
 Blue2.src = 'blue2.png';
 var status = 1;
+var autoStatus = 1;
 
 var myAud = new Audio("whoosh.mp3");
 
