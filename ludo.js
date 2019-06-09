@@ -24,6 +24,22 @@ Blue2.src = 'blue2.png';
 var status = 1;
 var autoStatus = 1;
 
+var one = new Image();
+one.src = '1.jpg';
+var two = new Image();
+two.src = '2.jpg';
+var three = new Image();
+three.src = '3.jpg';
+var four = new Image();
+four.src = '4.jpg';
+var five = new Image();
+five.src = '5.jpg';
+var six = new Image();
+six.src = '6.jpg';
+var dice = new Image();
+dice.src = 'dice.gif';
+
+
 var myAud = new Audio("whoosh.mp3");
 
 function initial(){
@@ -37,6 +53,8 @@ function initial(){
 	loc.appendChild(Blue1);
 	var loc = document.getElementById('lockerA');
 	loc.appendChild(Blue2);
+	var gif = document.getElementById('gif');
+	gif.appendChild(dice);
 }
 
 function myFunction(i)
@@ -61,6 +79,32 @@ function rollCheck()
 	document.getElementById('terms').innerHTML = "term of: "+term;
 }
 
+function remove()
+{
+	var myNode = document.getElementById('gif');
+    while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+}
+}
+
+function print()
+{
+	document.getElementById('value').innerHTML = rollValue;
+	document.getElementById('turns').innerHTML = "turn of: "+turn;
+	document.getElementById('terms').innerHTML = "term of: "+term;
+	var gif = document.getElementById('gif');
+	switch(rollValue)
+		{
+			case 1 : remove(); gif.appendChild(one); break;
+			case 2 : remove(); gif.appendChild(two); break;
+			case 3 : remove(); gif.appendChild(three); break;
+			case 4 : remove(); gif.appendChild(four); break;
+			case 5 : remove(); gif.appendChild(five); break;
+			case 6 : remove(); gif.appendChild(six); break;
+			case 0 : remove(); break;
+		}
+}
+
 function check()
 {
 	if(status == 1)
@@ -80,9 +124,7 @@ function check()
 						setTimeout(function(){
 							rollValue = 0;
 							termChanger();
-							document.getElementById('value').innerHTML = rollValue;
-							document.getElementById('turns').innerHTML = "turn of: "+turn;
-							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
+							print();},2000);
 					}
 				}
 				else status = 0;
@@ -98,9 +140,7 @@ function check()
 						setTimeout(function(){
 							rollValue = 0;
 							termChanger();
-							document.getElementById('value').innerHTML = rollValue;
-							document.getElementById('turns').innerHTML = "turn of: "+turn;
-							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
+							print();},2000);
 					}
 				}
 				else status = 0;
@@ -135,9 +175,7 @@ function rollRand()
 						setTimeout(function(){
 							rollValue = 0;
 							termChanger();
-							document.getElementById('value').innerHTML = rollValue;
-							document.getElementById('turns').innerHTML = "turn of: "+turn;
-							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
+							print();},2000);
 					}
 				}
 				else status = 0;
@@ -153,9 +191,7 @@ function rollRand()
 						setTimeout(function(){
 							rollValue = 0;
 							termChanger();
-							document.getElementById('value').innerHTML = rollValue;
-							document.getElementById('turns').innerHTML = "turn of: "+turn;
-							document.getElementById('terms').innerHTML = "term of: "+term;},2000);
+							print();},2000);
 					}
 				}
 				else status = 0;
@@ -163,9 +199,7 @@ function rollRand()
 		}
 	}
 	if(rollValue == 6) status = 0;
-	document.getElementById('value').innerHTML = rollValue;
-	document.getElementById('turns').innerHTML = "turn of: "+turn;
-	document.getElementById('terms').innerHTML = "term of: "+term;
+	print();
 	autoStatus = 1;
 	autoFinish();
 	setTimeout(auto,2000);
@@ -222,7 +256,7 @@ function autoFinish()
 			rollValue = 0;
 			status = 1;
 			termChanger();
-			setTimeout(function(){document.getElementById('value').innerHTML = rollValue;},2000);
+			setTimeout(print(),2000);
 		}
 	}
 	if(term == 'B')
@@ -274,14 +308,10 @@ function autoFinish()
 			rollValue = 0;
 			status = 1;
 			termChanger();
-			setTimeout(function(){document.getElementById('value').innerHTML = rollValue;},2000);
+			setTimeout(print(),2000);
 		}
 	}
-	setTimeout(function(){
-		document.getElementById('value').innerHTML = rollValue;
-		document.getElementById('turns').innerHTML = "turn of: "+turn;
-		document.getElementById('terms').innerHTML = "term of: "+term;
-	},2000);
+	setTimeout(print(),2000);
 	autoStatus = 0;
 }
 
@@ -400,6 +430,9 @@ function startA(){
 			alert('Locker A is empty');
 		status = 1;
 	}
+	var gif = document.getElementById('gif');
+	remove();
+	gif.appendChild(dice);
 }
 
 function startB(){
@@ -445,6 +478,9 @@ function startB(){
 			alert('Locker B is empty');
 		status = 1;
 	}
+	var gif = document.getElementById('gif');
+	remove();
+	gif.appendChild(dice);
 }
 
 
@@ -466,6 +502,9 @@ function isMovable(p){
 				move(2,B2);
 		}
 	}
+	var gif = document.getElementById('gif');
+	remove();
+	gif.appendChild(dice);
 }
 
 function move(n,p){
@@ -507,14 +546,11 @@ function move(n,p){
 	eatCheck(n);
 	if(rollValue !=6)
 		termChanger();
-	
-	document.getElementById('turns').innerHTML = "turn of : "+turn;
-	document.getElementById('terms').innerHTML = "term of : "+term;
 	finishCheck();
 	winCheck();
 	status = 1;
-	document.getElementById('value').innerHTML = '';
 	rollValue = 0;
+	print();
 }
 
 function tokenEraser(n)
