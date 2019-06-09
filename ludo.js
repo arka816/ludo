@@ -150,6 +150,7 @@ function check()
 	if(rollValue == 6) status = 0;
 	document.getElementById('turns').innerHTML = "turn of: "+turn;
 	document.getElementById('terms').innerHTML = "term of: "+term;
+	print();
 	autoStatus = 1;
 	autoFinish();
 	setTimeout(auto,2000);
@@ -220,7 +221,10 @@ function autoFinish()
 				else
 				{
 					if(LockerA == 1)
+					{
+						termChanger();
 						startA();
+					}
 					else 
 					{
 						rollValue = 0;
@@ -228,7 +232,9 @@ function autoFinish()
 				}
 			}
 			else if((LockerA+finishA) == 0)
-				setTimeout(isMovable(A2),1500);
+				{
+					setTimeout(isMovable(A2),1500);
+				}
 		}
 		else if((rollValue+stepA2) > 27)
 		{
@@ -241,7 +247,10 @@ function autoFinish()
 				else
 				{
 					if(LockerA == 1)
+					{
+						termChanger();
 						startA();
+					}
 					else 
 					{
 						rollValue = 0;
@@ -249,7 +258,9 @@ function autoFinish()
 				}
 			}
 			else if((LockerA+finishA) == 0)
-				setTimeout(isMovable(A1),1500);
+				{
+					setTimeout(isMovable(A1),1500);
+				}
 		}
 		if((rollValue+stepA1) > 27 && (rollValue+stepA2) > 27)
 		{
@@ -272,7 +283,10 @@ function autoFinish()
 				else
 				{
 					if(LockerB == 1)
+					{
+						termChanger();
 						startB();
+					}
 					else 
 					{
 						rollValue = 0;
@@ -280,7 +294,9 @@ function autoFinish()
 				}
 			}
 			else if((LockerB+finishB) == 0)
-				setTimeout(isMovable(B2),1500);
+				{
+					setTimeout(isMovable(B2),1500);
+				}
 		}
 		else if((rollValue+stepB2) > 27)
 		{
@@ -293,7 +309,10 @@ function autoFinish()
 				else
 				{
 					if(LockerB == 1)
+					{
+						termChanger();
 						startB();
+					}
 					else 
 					{
 						rollValue = 0;
@@ -301,7 +320,9 @@ function autoFinish()
 				}
 			}
 			else if((LockerB+finishB) == 0)
-				setTimeout(isMovable(B1),1500);
+				{
+					setTimeout(isMovable(B1),1500);
+				}
 		}
 		if((rollValue+stepB1) > 27 && (rollValue+stepB2) > 27)
 		{
@@ -731,9 +752,15 @@ function finishCheck()
 function winCheck()
 {
 	if(finishA == 2)
-		alert("Winner is A !!!!");
+		{
+			document.getElementById('win').style.display = 'inline-block';
+			document.getElementById('B').style.display = 'none';
+		}
 	else if(finishB == 2)
-		alert("Winner is B !!!!")
+		{
+			document.getElementById('win').style.display = 'inline-block';
+			document.getElementById('B').style.display = 'none';
+		}
 }
 
 

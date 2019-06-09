@@ -51,9 +51,8 @@ div.block{
 	height: 74px;
 	border-radius: 10px;
 	display: inline-grid;
-	background-image: url('block.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
+	background: linear-gradient(to top left, #33ccff 0%, white 100%);
+	opacity: 0.85;
 }
 div.mid{
 	width: 600px;
@@ -144,4 +143,29 @@ form.checker{
 	position: relative; 
 	right: 17.6px;
 	border: none;
+}
+div#win{
+	position: fixed;
+	top: 100px;
+	left: 440px;
+	width: 640px;
+	height: 480px;
+	background-image: url('win.gif');
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 20px;
+	z-index: 2;
+	text-align: center;
+	font-size: 60px;
+	display: none;
+}
+i#new{
+	position: relative;
+	left: 310px;
+	bottom: 30px;
+	font-size: 40px;
+	z-index: 3;
+}
+span#B{
+	display: none;
 }

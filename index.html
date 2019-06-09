@@ -5,9 +5,16 @@
 	<meta charset="utf-8">
 	<link rel='shortcut icon' href='favicon.png' type='image/png'>
 	<link rel="stylesheet" type="text/css" href="game.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="ludo.js"></script>
 </head>
 <body onload="initial()">
+	<div id="win">
+		<i class="fa fa-window-close" id="new" onclick="location.reload()"></i>
+		<br><br>
+		Congratulations!<br><br>
+		&nbsp&nbsp<span id="A">A</span><span id="B">B</span> is the Winner<br>
+	</div>
 	<div class="logo">
 		<img src="ludo.jpg" height="200px">
 	</div>
