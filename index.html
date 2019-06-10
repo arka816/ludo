@@ -10,32 +10,30 @@
 	<script type="text/javascript" src="ludo.js"></script>
 </head>
 <body onload="initial()">
-	<div style="text-align: center;">
-		<div id="welcome">
-			<div id="welcome_header"><img src="favicon.png" width="100px"></div>
-			<h1 style="position: relative; bottom: 70px">Welcome to Ludo King!!!</h1>
-			<div id="instruction_header" onclick="welcome()" style="cursor: pointer; width: 140px; position: relative; bottom: 50px; left: 140px"><h2 style="margin: 0px">Continue</h2></div>
-		</div>
+	<div id="welcome">
+		<div id="welcome_header"><img src="favicon.png" width="100px"></div>
+		<h1 style="position: relative; bottom: 70px">Welcome to Ludo King!!!</h1>
+		<div id="instruction_header" onclick="welcome()" style="cursor: pointer; width: 140px; position: relative; bottom: 50px; left: 140px"><h2 style="margin: 0px">Continue</h2></div>
+	</div>
 
-		<div id="instruction">
-			<div id="instruction_header"><h1>INSTRUCTIONS</h1></div>
-			<img src="instruction.gif" style="position: relative; bottom: 90px">
-			<div style="text-align: left; font-size: 30px; padding-left: 30px; position: relative; bottom: 400px">
-				<ul>
-					<li><strong>This is an automatised Ludo Game</strong></li>
-					<li><strong>There are two players</strong></li>
-					<li><strong>There are two tokens for each player</strong></li>
-				</ul>
-			</div>
-			<div id="instruction_header" onclick="instr()" style="cursor: pointer; width: 140px; position: relative; bottom: 400px; left: 220px"><h2 style="margin: 0px">Continue</h2></div>
+	<div id="instruction">
+		<div id="instruction_header"><h1>INSTRUCTIONS</h1></div>
+		<img src="instruction.gif" style="position: relative; bottom: 90px">
+		<div style="text-align: left; font-size: 30px; padding-left: 30px; position: relative; bottom: 400px">
+			<ul>
+				<li><strong>This is an automatised Ludo Game</strong></li>
+				<li><strong>There are two players</strong></li>
+				<li><strong>There are two tokens for each player</strong></li>
+			</ul>
 		</div>
+		<div id="instruction_header" onclick="instr()" style="cursor: pointer; width: 140px; position: relative; bottom: 400px; left: 220px"><h2 style="margin: 0px">Continue</h2></div>
+	</div>
 
-		<div id="win">
-			<i class="fa fa-window-close" id="new" onclick="location.reload()"></i>
-			<br><br>
-			Congratulations!<br><br>
-			&nbsp&nbsp<span id="A">A</span><span id="B">B</span> is the Winner<br>
-		</div>
+	<div id="win">
+		<i class="fa fa-window-close" id="new" onclick="location.reload()"></i>
+		<br><br>
+		Congratulations!<br><br>
+		&nbsp&nbsp<span id="A">A</span><span id="B">B</span> is the Winner<br>
 	</div>
 
 	<div id="logo">
