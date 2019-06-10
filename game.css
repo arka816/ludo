@@ -169,9 +169,6 @@ i#new{
 	font-size: 40px;
 	z-index: 3;
 }
-span#B{
-	display: none;
-}
 
 div#tutorialRoll{
 	position: relative;
