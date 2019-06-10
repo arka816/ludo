@@ -15,7 +15,7 @@
 		Congratulations!<br><br>
 		&nbsp&nbsp<span id="A">A</span><span id="B">B</span> is the Winner<br>
 	</div>
-	<div class="logo">
+	<div id="logo">
 		<img src="ludo.jpg" height="200px">
 	</div>
 	<div style="display: inline-flex;">
@@ -23,9 +23,9 @@
 		<div onclick="startB()" id="lockerB"><h1>Locker for B</h1></div>
 	</div>
 	<br>
-	<div class="wrapper">
+	<div id="wrapper">
 		<div class="first">
-			<div id="1" class="block" style="background-color: #66b3ff; background-image: none; opacity: 1;" onclick="myFunction(1)">
+			<div id="1" class="block" style="background-color: #66b3ff; background-image: none; border: none" onclick="myFunction(1)">
 			</div>
 			<div id="2" class="block" onclick="myFunction(2)"></div>
 			<div id="3" class="block" onclick="myFunction(3)"></div>
@@ -36,13 +36,13 @@
 			<div id="8" class="block" onclick="myFunction(8)"></div>
 		</div>
 		<div class="mid">
-			<div class="block" id="0" onclick="myFunction(0)" style="background-color: rgba(102,179,255,0.5); background-image: none;"></div>
+			<div class="block" id="0" onclick="myFunction(0)" style="background-color: rgba(102,179,255,0.5); background-image: none; border: none;"></div>
 			<div class="block" id="9" onclick="myFunction(9)" style="margin-left: 452px"></div>
 		</div>
 		<div class="mid">
 			<div class="block" id="27" onclick="myFunction(27)"></div>
 			<div style="position: relative; left: 150px; width: 150px; text-align: center;">
-				<button class="roll" onclick="rollRand()">Roll!</button>
+				<button class="roll" onclick="rollRand()" id="roll">Roll!</button>
 				<div id="value"></div>
 				<div id="gif"></div>
 				<div id="turns"></div>
@@ -68,7 +68,7 @@
 		</div>
 		<div class="mid">
 			<div class="block" id="23" onclick="myFunction(23)"></div>
-			<div class="block" id="14" onclick="myFunction(14)" style="background-color: rgba(216,50,48,0.7); margin-left: 452px; background-image: none;"></div>
+			<div class="block" id="14" onclick="myFunction(14)" style="background-color: rgba(216,50,48,0.7); margin-left: 452px; background-image: none; border: none"></div>
 		</div>
 		<div class="first">
 			<div class="block" id="22" onclick="myFunction(22)"></div>
@@ -78,32 +78,32 @@
 			<div class="block" id="18" onclick="myFunction(18)"></div>
 			<div class="block" id="17" onclick="myFunction(17)"></div>
 			<div class="block" id="16" onclick="myFunction(16)"></div>
-			<div class="block" id="15" style="background-color: #d83230; background-image: none; opacity: 1;" onclick="myFunction(15)"></div>
+			<div class="block" id="15" style="background-color: #d83230; background-image: none; border: none;" onclick="myFunction(15)"></div>
 		</div>
 	</div>
 	<p><br></p>
-	<div id="tutLocker" style="display: none;">
-		<div class="tutorialLocker">
-			<h2>Click Here to Unlock Token</h2>
-			<span style="position: relative; left: 120px; top: 10px; color: black; cursor: pointer;" onclick="tut2()">Got It</span>
+	<div style="text-align: center; filter: brightness(130%);">
+		<div id="tutLocker" style="display: none;">
+			<div class="tutorialLocker">
+				<h2>Click Here to Unlock Token</h2>
+				<span style="position: relative; left: 120px; top: 10px; color: black; cursor: pointer;" onclick="tut2()">Got It</span>
+			</div>
+			<div class="triangleLocker"></div>
 		</div>
-		<div class="triangleLocker"></div>
-	</div>
-	<div id="tutBlock" style="display: none;">
-		<div class="tutorialBlock">
-			<h2>Click on Block to Move Token</h2>
-			<span style="position: relative; left: 120px; top: 30px; color: black; cursor: pointer;" onclick="tut3()">Got It</span>
+		<div id="tutBlock" style="display: none;">
+			<div class="tutorialBlock">
+				<h2>Click on Block to Move Token</h2>
+				<span style="position: relative; left: 120px; top: 30px; color: black; cursor: pointer;" onclick="tut3()">Got It</span>
+			</div>
+			<div class="triangleBlock"></div>
 		</div>
-		<div class="triangleBlock"></div>
-	</div>
-	<div id="tutRoll" style="display: none;">
-		<div id="tutorialRoll">
-			<h2>Click Here to Roll</h2>
-			<span style="position: relative; left: 80px; top: 10px; color: black; cursor: pointer;" onclick="tut1()">Got It</span>
+		<div id="tutRoll" style="display: none;">
+			<div id="tutorialRoll">
+				<h2>Click Here to Roll</h2>
+				<span style="position: relative; left: 80px; top: 10px; color: black; cursor: pointer;" onclick="tut1()">Got It</span>
+			</div>
+			<div id="triangleRoll"></div>
 		</div>
-		<div id="triangleRoll"></div>
 	</div>
-	
-	<p><br><br></p>
 </body>
 </html>

@@ -57,24 +57,32 @@ function initial(){
 	gif.appendChild(dice);
 
 	setTimeout(function(){
-		document.getElementById('tutRoll').style.display = 'block';
+		document.getElementById('tutRoll').style.display = 'inline-block';
+		document.getElementById('wrapper').style.filter = "brightness(40%)";
+		document.getElementById('lockerA').style.filter = "brightness(40%)";
+		document.getElementById('lockerB').style.filter = "brightness(40%)";
+		document.getElementById('logo').style.filter = "brightness(40%)";
 	},2000);
 }
 
 function tut1()
 {
 	document.getElementById('tutRoll').style.display = 'none';
-	document.getElementById('tutLocker').style.display = 'block';
+	document.getElementById('tutLocker').style.display = 'inline-block';
 }
 function tut2()
 {
 	document.getElementById('tutLocker').style.display = 'none';
-	document.getElementById('tutBlock').style.display = 'block';
+	document.getElementById('tutBlock').style.display = 'inline-block';
 }
 function tut3()
 {
 	document.getElementById('tutBlock').style.display = 'none';
 	status = 1;
+	document.getElementById('wrapper').style.filter = "brightness(100%)";
+	document.getElementById('lockerA').style.filter = "brightness(100%)";
+	document.getElementById('lockerB').style.filter = "brightness(100%)";
+	document.getElementById('logo').style.filter = "brightness(100%)";
 }
 
 function myFunction(i)

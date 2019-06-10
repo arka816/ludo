@@ -9,7 +9,7 @@ body{
 	background-size: cover;
 }
 
-div.logo{
+div#logo{
 	text-align: center;
 }
 div#lockerA{
@@ -31,7 +31,7 @@ div#lockerB{
 	padding: 0px 8px 0px 8px;
 }
 
-div.wrapper{
+div#wrapper{
 	position: relative;
 	top: -50px;
 	width: 600px;
@@ -47,15 +47,16 @@ div.first{
 	justify-content: space-around;
 }
 div.block{
-	width: 12.3%;
-	height: 74px;
+	width: 12.1%;
+	height: 73px;
 	border-radius: 10px;
 	display: inline-grid;
-	background: linear-gradient(to top left, #33ccff 0%, white 70%);
-	opacity: 0.75;
+	background: linear-gradient(to top left, #66b3ff 0%, white 100%);
+	opacity: 1;
+	filter: brightness(90%);
 }
 div.block:hover{
-	filter: brightness(400%);
+	filter: brightness(110%);
 }
 div.mid{
 	width: 600px;
@@ -172,8 +173,8 @@ i#new{
 
 div#tutorialRoll{
 	position: relative;
-	left: 680px;
 	bottom: 670px;
+	left: 30px;
 	width: 220px;
 	height: 100px;
 	background-color: #f7cb65;
@@ -190,15 +191,15 @@ div#triangleRoll{
 	border-left: 18px solid transparent;
 	border-right: 18px solid transparent;
 	position: relative;
-	left: 700px;
+	left: 40px;
 	bottom: 670px;
 	z-index: 4;
 }
 
 div.tutorialLocker{
 	position: relative;
-	left: 200px;
 	bottom: 840px;
+	right: 400px;
 	width: 320px;
 	height: 100px;
 	background-color: #f7cb65;
@@ -215,15 +216,15 @@ div.triangleLocker{
 	border-left: 18px solid transparent;
 	border-right: 18px solid transparent;
 	position: relative;
-	left: 220px;
 	bottom: 840px;
+	right: 390px;
 	z-index: 4;
 }
 
 div.tutorialBlock{
 	position: relative;
-	left: 450px;
 	bottom: 870px;
+	right: 150px;
 	width: 320px;
 	height: 150px;
 	background-color: #f7cb65;
@@ -240,7 +241,7 @@ div.triangleBlock{
 	border-left: 18px solid transparent;
 	border-right: 18px solid transparent;
 	position: relative;
-	left: 460px;
 	bottom: 870px;
+	right: 140px;
 	z-index: 4;
 }
