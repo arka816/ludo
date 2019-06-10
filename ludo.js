@@ -66,17 +66,13 @@ function myFunction(i)
 function roll()
 {
 	rollValue = Math.floor(Math.random()*6)+1;
-	document.getElementById('value').innerHTML=rollValue;
-	document.getElementById('turns').innerHTML = "turn of: "+turn;
-	document.getElementById('terms').innerHTML = "term of: "+term;
+	print();
 }
 
 function rollCheck()
 {
 	rollValue = Number(document.getElementById('dice').value);
-	document.getElementById('value').innerHTML = rollValue;
-	document.getElementById('turns').innerHTML = "turn of: "+turn;
-	document.getElementById('terms').innerHTML = "term of: "+term;
+	print();
 }
 
 function remove()
@@ -152,8 +148,8 @@ function check()
 	document.getElementById('terms').innerHTML = "term of: "+term;
 	print();
 	autoStatus = 1;
-	autoFinish();
-	setTimeout(auto,2000);
+	setTimeout(autoFinish,1400);
+	setTimeout(auto,1300);
 }
 
 function rollRand()
@@ -164,7 +160,6 @@ function rollRand()
 		if(rollValue!=6)
 		{
 			turnChanger();
-			//option checker
 			if(term == 'A')
 			{
 				if((LockerA + finishA) == 2)
@@ -202,8 +197,8 @@ function rollRand()
 	if(rollValue == 6) status = 0;
 	print();
 	autoStatus = 1;
-	autoFinish();
-	setTimeout(auto,2000);
+	setTimeout(autoFinish,1400);
+	setTimeout(auto,1300);
 }
 
 function autoFinish()
@@ -223,6 +218,7 @@ function autoFinish()
 					if(LockerA == 1)
 					{
 						termChanger();
+						print();
 						startA();
 					}
 					else 
@@ -233,7 +229,8 @@ function autoFinish()
 			}
 			else if((LockerA+finishA) == 0)
 				{
-					setTimeout(isMovable(A2),1500);
+					print();
+					isMovable(A2);
 				}
 		}
 		else if((rollValue+stepA2) > 27)
@@ -259,15 +256,17 @@ function autoFinish()
 			}
 			else if((LockerA+finishA) == 0)
 				{
-					setTimeout(isMovable(A1),1500);
+					print();
+					isMovable(A1);
 				}
 		}
 		if((rollValue+stepA1) > 27 && (rollValue+stepA2) > 27)
 		{
+			print();
 			rollValue = 0;
 			status = 1;
 			termChanger();
-			setTimeout(print(),2000);
+			print();
 		}
 	}
 	if(term == 'B')
@@ -295,7 +294,8 @@ function autoFinish()
 			}
 			else if((LockerB+finishB) == 0)
 				{
-					setTimeout(isMovable(B2),1500);
+					print();
+					isMovable(B2);
 				}
 		}
 		else if((rollValue+stepB2) > 27)
@@ -321,19 +321,23 @@ function autoFinish()
 			}
 			else if((LockerB+finishB) == 0)
 				{
-					setTimeout(isMovable(B1),1500);
+					print();
+					isMovable(B1);
 				}
 		}
 		if((rollValue+stepB1) > 27 && (rollValue+stepB2) > 27)
 		{
+			print();
 			rollValue = 0;
 			status = 1;
 			termChanger();
-			setTimeout(print(),2000);
+			print();
 		}
 	}
-	setTimeout(print(),2000);
 	autoStatus = 0;
+	var gif = document.getElementById('gif');
+	remove();
+	gif.appendChild(dice);
 }
 
 function auto()
@@ -393,6 +397,9 @@ function auto()
 			isMovable(B1);
 	}
 	autoStatus = 0;
+	var gif = document.getElementById('gif');
+	remove();
+	gif.appendChild(dice);
 }
 
 function turnChanger(){
@@ -759,7 +766,7 @@ function winCheck()
 	else if(finishB == 2)
 		{
 			document.getElementById('win').style.display = 'inline-block';
-			document.getElementById('B').style.display = 'none';
+			document.getElementById('A').style.display = 'none';
 		}
 }
 
