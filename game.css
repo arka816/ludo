@@ -2,7 +2,7 @@ body{
 	text-align: center;
 	height: 100%;
 	margin: 0px;
-	font-family: trebuchet ms;
+	font-family: 'Gloria Hallelujah', cursive;
 	background-image: url('background.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -15,11 +15,12 @@ div#logo{
 div#lockerA{
 	position: relative;
 	right: 350px;
-	top: 50px;
+	top: 100px;
 	border-radius: 8px;
 	background-color: rgba(102,179,255,0.8);
 	color: white;
 	padding: 0px 8px 0px 8px;
+	font-family: trebuchet ms;
 }
 div#lockerB{
 	position: relative;
@@ -29,6 +30,7 @@ div#lockerB{
 	background-color: rgba(216,50,48,0.9);
 	color: white;
 	padding: 0px 8px 0px 8px;
+	font-family: trebuchet ms;
 }
 
 div#wrapper{
@@ -38,6 +40,7 @@ div#wrapper{
 	height: 600px;
 	display: inline-grid;
 	justify-content: space-around;
+	font-family: trebuchet ms;
 }
 div.first{
 	width: 600px;
@@ -173,10 +176,10 @@ i#new{
 
 div#tutorialRoll{
 	position: relative;
-	bottom: 670px;
-	left: 30px;
-	width: 220px;
-	height: 100px;
+	bottom: 710px;
+	left: 50px;
+	width: 250px;
+	height: 130px;
 	background-color: #f7cb65;
 	color: #a53106;
 	border-radius: 6px;
@@ -191,17 +194,17 @@ div#triangleRoll{
 	border-left: 18px solid transparent;
 	border-right: 18px solid transparent;
 	position: relative;
-	left: 40px;
-	bottom: 670px;
+	left: 60px;
+	bottom: 710px;
 	z-index: 4;
 }
 
 div.tutorialLocker{
 	position: relative;
 	bottom: 840px;
-	right: 400px;
-	width: 320px;
-	height: 100px;
+	right: 380px;
+	width: 360px;
+	height: 140px;
 	background-color: #f7cb65;
 	color: #a53106;
 	border-radius: 6px;
@@ -217,13 +220,13 @@ div.triangleLocker{
 	border-right: 18px solid transparent;
 	position: relative;
 	bottom: 840px;
-	right: 390px;
+	right: 360px;
 	z-index: 4;
 }
 
 div.tutorialBlock{
 	position: relative;
-	bottom: 870px;
+	bottom: 890px;
 	right: 150px;
 	width: 320px;
 	height: 150px;
@@ -241,7 +244,55 @@ div.triangleBlock{
 	border-left: 18px solid transparent;
 	border-right: 18px solid transparent;
 	position: relative;
-	bottom: 870px;
+	bottom: 890px;
 	right: 140px;
 	z-index: 4;
+}
+
+div#instruction{
+	width: 600px;
+	height: 400px;
+	position: fixed;
+	top: 170px;
+	left: 456px;
+	background-color: #f7cb65;
+	border-radius: 20px;
+	text-align: center;
+	border: solid 5px brown;
+	z-index: 5;
+	display: none;
+}
+div#instruction_header{
+	position: relative; 
+	bottom: 50px; 
+	left: 160px; 
+	border-radius: 6px; 
+	background-color: brown; 
+	color: white; 
+	border: solid 4px black;
+	width: 280px;
+}
+
+div#welcome{
+	width: 420px;
+	height: 200px;
+	position: fixed;
+	top: 320px;
+	left: 546px;
+	background-color: #f7cb65;
+	border-radius: 20px;
+	text-align: center;
+	border: solid 5px brown;
+	z-index: 5;
+	display: none;
+}
+div#welcome_header{
+	position: relative; 
+	bottom: 50px; 
+	left: 160px; 
+	border-radius: 15px; 
+	color: white; 
+	border: solid 4px brown;
+	width: 100px;
+	height: 100px;
 }

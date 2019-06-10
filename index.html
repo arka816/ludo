@@ -6,22 +6,45 @@
 	<link rel='shortcut icon' href='favicon.png' type='image/png'>
 	<link rel="stylesheet" type="text/css" href="game.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet"> 
 	<script type="text/javascript" src="ludo.js"></script>
 </head>
 <body onload="initial()">
+	<div id="welcome">
+		<div id="welcome_header"><img src="favicon.png" width="100px"></div>
+		<h1 style="position: relative; bottom: 70px">Welcome to Ludo King!!!</h1>
+		<div id="instruction_header" onclick="welcome()" style="cursor: pointer; width: 140px; position: relative; bottom: 50px; left: 140px"><h2 style="margin: 0px">Continue</h2></div>
+	</div>
+
+	<div id="instruction">
+		<div id="instruction_header"><h1>INSTRUCTIONS</h1></div>
+		<img src="instruction.gif" style="position: relative; bottom: 90px">
+		<div style="text-align: left; font-size: 30px; padding-left: 30px; position: relative; bottom: 400px">
+			<ul>
+				<li><strong>This is an automatised Ludo Game</strong></li>
+				<li><strong>There are two players</strong></li>
+				<li><strong>There are two tokens for each player</strong></li>
+			</ul>
+		</div>
+		<div id="instruction_header" onclick="instr()" style="cursor: pointer; width: 140px; position: relative; bottom: 400px; left: 220px"><h2 style="margin: 0px">Continue</h2></div>
+	</div>
+
 	<div id="win">
 		<i class="fa fa-window-close" id="new" onclick="location.reload()"></i>
 		<br><br>
 		Congratulations!<br><br>
 		&nbsp&nbsp<span id="A">A</span><span id="B">B</span> is the Winner<br>
 	</div>
+
 	<div id="logo">
 		<img src="ludo.jpg" height="200px">
 	</div>
+
 	<div style="display: inline-flex;">
 		<div onclick="startA()" id="lockerA"><h1>Locker for A</h1></div>
 		<div onclick="startB()" id="lockerB"><h1>Locker for B</h1></div>
 	</div>
+
 	<br>
 	<div id="wrapper">
 		<div class="first">
@@ -48,7 +71,7 @@
 				<div id="turns"></div>
 				<div id="terms"></div>	
 				<form class="checker">
-					<input type="number" name="dice" min="1" max="6" id="dice" style="border: none; padding: 4px"  autofocus>
+					<input type="number" name="dice" min="1" max="6" id="dice" style="border: none; padding: 4px">
   					<div onclick="check()" id="submit">Check</div>
 				</form>
 			</div>
@@ -82,7 +105,7 @@
 		</div>
 	</div>
 	<p><br></p>
-	<div style="text-align: center; filter: brightness(130%);">
+	<div style="text-align: center; filter: brightness(100%);">
 		<div id="tutLocker" style="display: none;">
 			<div class="tutorialLocker">
 				<h2>Click Here to Unlock Token</h2>
@@ -92,7 +115,7 @@
 		</div>
 		<div id="tutBlock" style="display: none;">
 			<div class="tutorialBlock">
-				<h2>Click on Block to Move Token</h2>
+				<h2>Click to Move Token</h2>
 				<span style="position: relative; left: 120px; top: 30px; color: black; cursor: pointer;" onclick="tut3()">Got It</span>
 			</div>
 			<div class="triangleBlock"></div>

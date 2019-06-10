@@ -57,14 +57,24 @@ function initial(){
 	gif.appendChild(dice);
 
 	setTimeout(function(){
-		document.getElementById('tutRoll').style.display = 'inline-block';
-		document.getElementById('wrapper').style.filter = "brightness(40%)";
-		document.getElementById('lockerA').style.filter = "brightness(40%)";
-		document.getElementById('lockerB').style.filter = "brightness(40%)";
-		document.getElementById('logo').style.filter = "brightness(40%)";
+		document.getElementById('welcome').style.display = 'inline-block';
+		document.getElementById('wrapper').style.filter = "brightness(20%)";
+		document.getElementById('lockerA').style.filter = "brightness(20%)";
+		document.getElementById('lockerB').style.filter = "brightness(20%)";
+		document.getElementById('logo').style.filter = "brightness(20%)";
 	},2000);
 }
 
+function welcome()
+{
+	document.getElementById('welcome').style.display = 'none';
+	document.getElementById('instruction').style.display = 'inline-block';
+}
+function instr()
+{
+	document.getElementById('instruction').style.display = 'none';	
+	document.getElementById('tutRoll').style.display = 'inline-block';
+}
 function tut1()
 {
 	document.getElementById('tutRoll').style.display = 'none';
@@ -240,7 +250,10 @@ function autoFinish()
 				status = 1;
 				termChanger();
 				if(rollValue != 6)
+				{
 					rollValue = 0;
+					print();
+				}
 				else
 				{
 					if(LockerA == 1)
@@ -252,6 +265,7 @@ function autoFinish()
 					else 
 					{
 						rollValue = 0;
+						print();
 					}
 				}
 			}
@@ -268,17 +282,22 @@ function autoFinish()
 				status = 1;
 				termChanger();
 				if(rollValue != 6)
+				{
 					rollValue = 0;
+					print();
+				}
 				else
 				{
 					if(LockerA == 1)
 					{
 						termChanger();
+						print();
 						startA();
 					}
 					else 
 					{
 						rollValue = 0;
+						print();
 					}
 				}
 			}
@@ -306,17 +325,22 @@ function autoFinish()
 				status = 1;
 				termChanger();
 				if(rollValue != 6)
+				{
 					rollValue = 0;
+					print();
+				}
 				else
 				{
 					if(LockerB == 1)
 					{
 						termChanger();
+						print();
 						startB();
 					}
 					else 
 					{
 						rollValue = 0;
+						print();
 					}
 				}
 			}
@@ -333,17 +357,22 @@ function autoFinish()
 				status = 1;
 				termChanger();
 				if(rollValue != 6)
+				{
 					rollValue = 0;
+					print();
+				}
 				else
 				{
 					if(LockerB == 1)
 					{
 						termChanger();
+						print();
 						startB();
 					}
 					else 
 					{
 						rollValue = 0;
+						print();
 					}
 				}
 			}
