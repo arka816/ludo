@@ -250,11 +250,11 @@ div.triangleBlock{
 }
 
 div#instruction{
-	width: 39.47%;
-	height: 51.1%;
+	width: 600px;
+	height: 400px;
 	position: fixed;
-	top: 17.47%;
-	left: 28.64%;
+	top: 170px;
+	left: 456px;
 	background-color: #f7cb65;
 	border-radius: 20px;
 	text-align: center;
@@ -264,21 +264,21 @@ div#instruction{
 }
 div#instruction_header{
 	position: relative; 
-	bottom: 13.02%; 
-	left: 26.27%; 
+	bottom: 50px; 
+	left: 160px; 
 	border-radius: 6px; 
 	background-color: brown; 
 	color: white; 
 	border: solid 4px black;
-	width: 45.97%;
+	width: 280px;
 }
 
 div#welcome{
-	width: 27.63%;
-	height: 26.5%;
+	width: 420px;
+	height: 200px;
 	position: fixed;
-	top: 32.87%;
-	left: 35.92%;
+	top: 320px;
+	left: 546px;
 	background-color: #f7cb65;
 	border-radius: 20px;
 	text-align: center;
@@ -288,11 +288,11 @@ div#welcome{
 }
 div#welcome_header{
 	position: relative; 
-	bottom: 24.5%; 
-	left: 38.1%; 
-	border-radius: 15px; 
+	bottom: 50px; 
+	left: 160px; 
+	border-radius: 16px; 
 	color: white; 
 	border: solid 4px brown;
-	width: 23.8%;
-	height: 49.01%;
+	width: 100px;
+	height: 100px;
 }
