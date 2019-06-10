@@ -25,7 +25,7 @@
 	<br>
 	<div class="wrapper">
 		<div class="first">
-			<div id="1" class="block" style="background-color: #66b3ff; background-image: none;" onclick="myFunction(1)">
+			<div id="1" class="block" style="background-color: #66b3ff; background-image: none; opacity: 1;" onclick="myFunction(1)">
 			</div>
 			<div id="2" class="block" onclick="myFunction(2)"></div>
 			<div id="3" class="block" onclick="myFunction(3)"></div>
@@ -78,11 +78,31 @@
 			<div class="block" id="18" onclick="myFunction(18)"></div>
 			<div class="block" id="17" onclick="myFunction(17)"></div>
 			<div class="block" id="16" onclick="myFunction(16)"></div>
-			<div class="block" id="15" style="background-color: #d83230; background-image: none;" onclick="myFunction(15)"></div>
+			<div class="block" id="15" style="background-color: #d83230; background-image: none; opacity: 1;" onclick="myFunction(15)"></div>
 		</div>
 	</div>
 	<p><br></p>
-
+	<div id="tutLocker" style="display: none;">
+		<div class="tutorialLocker">
+			<h2>Click Here to Unlock Token</h2>
+			<span style="position: relative; left: 120px; top: 10px; color: black; cursor: pointer;" onclick="tut2()">Got It</span>
+		</div>
+		<div class="triangleLocker"></div>
+	</div>
+	<div id="tutBlock" style="display: none;">
+		<div class="tutorialBlock">
+			<h2>Click on Block to Move Token</h2>
+			<span style="position: relative; left: 120px; top: 30px; color: black; cursor: pointer;" onclick="tut3()">Got It</span>
+		</div>
+		<div class="triangleBlock"></div>
+	</div>
+	<div id="tutRoll" style="display: none;">
+		<div id="tutorialRoll">
+			<h2>Click Here to Roll</h2>
+			<span style="position: relative; left: 80px; top: 10px; color: black; cursor: pointer;" onclick="tut1()">Got It</span>
+		</div>
+		<div id="triangleRoll"></div>
+	</div>
 	
 	<p><br><br></p>
 </body>

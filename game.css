@@ -15,7 +15,7 @@ div.logo{
 div#lockerA{
 	position: relative;
 	right: 350px;
-	top: 70px;
+	top: 50px;
 	border-radius: 8px;
 	background-color: rgba(102,179,255,0.8);
 	color: white;
@@ -171,4 +171,79 @@ i#new{
 }
 span#B{
 	display: none;
+}
+
+div#tutorialRoll{
+	position: relative;
+	left: 680px;
+	bottom: 670px;
+	width: 220px;
+	height: 100px;
+	background-color: #f7cb65;
+	color: #a53106;
+	border-radius: 6px;
+	z-index: 4;
+	padding-top: 10px;
+}
+div#triangleRoll{
+	background-color: transparent;
+	height: 0px;
+	width: 0px;
+	border-top: 24px solid #f7cb65;
+	border-left: 18px solid transparent;
+	border-right: 18px solid transparent;
+	position: relative;
+	left: 700px;
+	bottom: 670px;
+	z-index: 4;
+}
+
+div.tutorialLocker{
+	position: relative;
+	left: 200px;
+	bottom: 840px;
+	width: 320px;
+	height: 100px;
+	background-color: #f7cb65;
+	color: #a53106;
+	border-radius: 6px;
+	z-index: 4;
+	padding-top: 10px;
+}
+div.triangleLocker{
+	background-color: transparent;
+	height: 0px;
+	width: 0px;
+	border-top: 24px solid #f7cb65;
+	border-left: 18px solid transparent;
+	border-right: 18px solid transparent;
+	position: relative;
+	left: 220px;
+	bottom: 840px;
+	z-index: 4;
+}
+
+div.tutorialBlock{
+	position: relative;
+	left: 450px;
+	bottom: 870px;
+	width: 320px;
+	height: 150px;
+	background-color: #f7cb65;
+	color: #a53106;
+	border-radius: 6px;
+	z-index: 4;
+	padding-top: 10px;
+}
+div.triangleBlock{
+	background-color: transparent;
+	height: 0px;
+	width: 0px;
+	border-top: 24px solid #f7cb65;
+	border-left: 18px solid transparent;
+	border-right: 18px solid transparent;
+	position: relative;
+	left: 460px;
+	bottom: 870px;
+	z-index: 4;
 }

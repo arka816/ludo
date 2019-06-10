@@ -21,7 +21,7 @@ Red1.src= 'red1.png';
 Blue1.src = 'blue1.png';
 Red2.src= 'red2.png';
 Blue2.src = 'blue2.png';
-var status = 1;
+var status = 0;
 var autoStatus = 1;
 
 var one = new Image();
@@ -55,6 +55,26 @@ function initial(){
 	loc.appendChild(Blue2);
 	var gif = document.getElementById('gif');
 	gif.appendChild(dice);
+
+	setTimeout(function(){
+		document.getElementById('tutRoll').style.display = 'block';
+	},2000);
+}
+
+function tut1()
+{
+	document.getElementById('tutRoll').style.display = 'none';
+	document.getElementById('tutLocker').style.display = 'block';
+}
+function tut2()
+{
+	document.getElementById('tutLocker').style.display = 'none';
+	document.getElementById('tutBlock').style.display = 'block';
+}
+function tut3()
+{
+	document.getElementById('tutBlock').style.display = 'none';
+	status = 1;
 }
 
 function myFunction(i)
